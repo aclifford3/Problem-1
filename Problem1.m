@@ -16,7 +16,7 @@
     I_in = 0;
     
     %Initial conditions
-    V_m = [V_rest zeros(1, timeLen-1)];
+    V_m = [zeros(1, timeLen)];
     V_i = 0;    
     %Equations
     a_m = 0.1*((25-V_i)/(exp((25-V_i)/10)-1));
@@ -27,7 +27,7 @@
     b_h = 1/(exp((30-V_i)/10)+1);
     
     %Initial conditions
-    m = a_m / (a_m + b_n);
+    m = a_m / (a_m + b_m);
     n = a_n / (a_n + b_n);
     h = a_h / (a_h + b_h);
     
@@ -74,5 +74,9 @@
         
         
     end
+    V_m = V_m + V_rest;
     plot(time, V_m);
+    axis([0,100, -100, 100]);
+    xlabel('Time (ms)');
+    ylabel('Membrane voltage (mV)');
     
