@@ -75,8 +75,15 @@
         
     end
     V_m = V_m + V_rest;
+    figure();
     plot(time, V_m);
     axis([0,100, -100, 100]);
+    title('Voltage vs. Time');
     xlabel('Time (ms)');
     ylabel('Membrane voltage (mV)');
+    figure();
+    plot(time, g_Na, time, g_K);
+    xlabel('Time (ms)');
+    ylabel('Ion conductance (mS/cm^2)');
+    title('Ion conductance vs. Time');
     
